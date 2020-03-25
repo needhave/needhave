@@ -26,6 +26,8 @@ The files and folders we care about are:
       channels/     # Websocket handlers
       controllers/  # HTTP Handlers
       models/       # Database / ORM
+    config/
+        routes.rb   # Defines API endpoints
 
     # Database
     db/
