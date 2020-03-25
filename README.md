@@ -5,5 +5,6 @@
 ```sh
 brew install ruby
 gem install rails
+bundle install
 ```
 
