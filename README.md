@@ -15,11 +15,16 @@ yarn run init
 ## Development
 
 Use `rails server` to run the server.
+Use `rails db:migrate` to initialize the database.
 
 Other commands:
 
-  - __Create Model:__ rails generate model Article title:string text:text
-  - __Update Model:__ rails generate migration AddPartNumberToProducts
+    # Create a new database table / model
+    rails generate model Article title:string text:text
+
+    # Create a file to change a database table
+    rails generate migration AddPartNumberToProducts
+
 
 ## Project structure
 
