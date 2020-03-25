@@ -6,6 +6,7 @@
 
 # Ignore editor config
 /.idea
+*.swp
 
 # Ignore bundler config.
 /.bundle
