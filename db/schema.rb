@@ -10,9 +10,37 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 0) do
+ActiveRecord::Schema.define(version: 2020_03_25_045916) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
+  create_table "entities", force: :cascade do |t|
+    t.text "description"
+    t.boolean "verified"
+    t.boolean "is_corporate"
+    t.text "contact_phone"
+    t.text "contact_email"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
+  create_table "haves", force: :cascade do |t|
+    t.text "description"
+    t.text "instructions"
+    t.bigint "entity_id"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
+  create_table "needs", force: :cascade do |t|
+    t.text "description"
+    t.text "instructions"
+    t.bigint "entity_id"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
+  add_foreign_key "haves", "entities"
+  add_foreign_key "needs", "entities"
 end
