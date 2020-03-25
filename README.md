@@ -3,8 +3,9 @@
 # Setup
 
 ```sh
-brew install ruby
+brew install ruby yarn
 gem install rails
 bundle install
+yarn install
 ```
 
