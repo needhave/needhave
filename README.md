@@ -20,9 +20,18 @@ Use `rails server` to run the server.
 
 The files and folders we care about are:
 
-    app/          # The rails server
-    db/           # The database migrations
-    Gemfile       # The ruby dependencies
-    package.json  # The javascript dependencies
+    # Server
+    app/
+      assets/       # Static assets
+      channels/     # Websocket handlers
+      controllers/  # HTTP Handlers
+      models/       # Database / ORM
+
+    # Database
+    db/
+
+    # Dependencies
+    Gemfile
+    package.json
 
 You can pretty much ignore everything else.
