@@ -2,20 +2,24 @@
 
 ## Setup
 
-Run these commands on MacOS to install required dependencies.
+Run these commands on MacOS to install required dependencie
+and setup the project directory.
 
 ```sh
-brew install ruby yarn
+brew install ruby yarn postgresql
+brew services start postgresql
 gem install rails
+gem install pg -- --with-pg-config=/usr/local/bin/pg_config
 bundle install
 yarn install
-yarn run init
+yarn run touch
+rails db:setup
 ```
 
 ## Development
 
 Use `rails server` to run the server.
-Use `rails db:migrate` to initialize the database.
+Use `rails db:migrate` to run outstanding database migrations.
 
 Other commands:
 

@@ -10,7 +10,7 @@
   },
   "version": "0.1.0",
   "scripts": {
-    "init": "mkdir tmp/ log/",
+    "touch": "mkdir tmp/ log/",
     "start": "rails server"
   },
   "devDependencies": {
