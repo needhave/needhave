@@ -16,6 +16,11 @@ yarn run init
 
 Use `rails server` to run the server.
 
+Other commands:
+
+  - __Create Model:__ rails generate model Article title:string text:text
+  - __Update Model:__ rails generate migration AddPartNumberToProducts
+
 ## Project structure
 
 The files and folders we care about are:
