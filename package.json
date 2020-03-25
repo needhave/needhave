@@ -10,7 +10,8 @@
   },
   "version": "0.1.0",
   "scripts": {
-    "init": "mkdir tmp/ log/"
+    "init": "mkdir tmp/ log/",
+    "start": "rails server"
   },
   "devDependencies": {
     "webpack-dev-server": "^3.10.3"
