@@ -3,12 +3,27 @@ git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
 ruby '2.6.3'
 
-gem 'rails', '~> 6.0.2', '>= 6.0.2.2'
+# Custom configuration for: gem 'rails', 
+gem "bundler",         ">= 1.3.0"
+gem "sprockets-rails", ">= 2.0.0"
+gem "activesupport", '~> 6.0.2', '>= 6.0.2.2'
+gem "actionpack",    '~> 6.0.2', '>= 6.0.2.2'
+gem "actionview",    '~> 6.0.2', '>= 6.0.2.2'
+gem "activemodel",   '~> 6.0.2', '>= 6.0.2.2'
+gem "activerecord",  '~> 6.0.2', '>= 6.0.2.2'
+gem "actionmailer",  '~> 6.0.2', '>= 6.0.2.2'
+gem "activejob",     '~> 6.0.2', '>= 6.0.2.2'
+gem "actioncable",   '~> 6.0.2', '>= 6.0.2.2'
+# gem "activestorage", '~> 6.0.2', '>= 6.0.2.2'
+# gem "actionmailbox", '~> 6.0.2', '>= 6.0.2.2'
+# gem "actiontext",    '~> 6.0.2', '>= 6.0.2.2'
+gem "railties",      '~> 6.0.2', '>= 6.0.2.2'
+
+# 
 gem 'pg', '>= 0.18', '< 2.0'
 gem 'puma', '~> 4.1'
-gem 'webpacker', '~> 4.0'
-gem 'turbolinks', '~> 5'
 gem 'jbuilder', '~> 2.7'
+gem 'ember-cli-rails'
 
 # Use Active Model has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
@@ -23,12 +38,4 @@ group :development do
   # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
   gem 'spring'
   gem 'spring-watcher-listen', '~> 2.0.0'
-end
-
-group :test do
-  # Adds support for Capybara system testing and selenium driver
-  gem 'capybara', '>= 2.15'
-  gem 'selenium-webdriver'
-  # Easy installation and use of web drivers to run system tests with browsers
-  gem 'webdrivers'
 end

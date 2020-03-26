@@ -5,26 +5,30 @@
 #   git config --global core.excludesfile '~/.gitignore_global'
 
 # Ignore editor config
-/.idea
+.idea
 *.swp
 
 # Ignore bundler config.
 /.bundle
 
 # Ignore all logfiles and tempfiles.
-/log
-/tmp
+log/
+tmp/
 
 # Ignore built files
 /public/assets
 /public/packs
 /public/packs-test
+/frontend/dist/
 
 # Ignore master key for decrypting credentials and more.
 /config/master.key
 
 # Ignore JS artifacts
-/node_modules
+node_modules/
 yarn-error.log
 yarn-debug.log*
 .yarn-integrity
+
+# Ignore root yarn.lock file (but not frontend/yarn.lock)
+/yarn.lock
