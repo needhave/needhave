@@ -10,16 +10,21 @@ brew install ruby yarn postgresql
 brew services start postgresql
 gem install rails
 gem install pg -- --with-pg-config=/usr/local/bin/pg_config
+npm install -g ember-cli
 bundle install
 yarn install
-yarn run touch
+yarn setup
 rails db:setup
 ```
 
 ## Development
 
-Use `rails server` to run the server.
 Use `rails db:migrate` to run outstanding database migrations.
+Use `rails server` to run the server.
+
+The app runs at [http://localhost:3000](http://localhost:3000).
+
+  > WARNING: The first render might fail, just reload the page.
 
 Other commands:
 
@@ -34,20 +39,25 @@ Other commands:
 
 The files and folders we care about are:
 
-    # Server
+    # Backend
     app/
-      assets/       # Static assets
-      channels/     # Websocket handlers
+      models/       # Data Model
+      channels/     # Websockets
       controllers/  # HTTP Handlers
-      models/       # Database / ORM
     config/
-        routes.rb   # Defines API endpoints
+      routes.rb   # Defines API endpoints
 
     # Database
     db/
+      migrations/   # SQL migrations
 
-    # Dependencies
-    Gemfile
-    package.json
+    # Frontend
+    frontend/app
+      models/       # Data access layer
+      routes/       # JS for pages
+      templates/    # HTML for pages
+      components/   # Reusable components
+      router.js     # List of pages
+      app.js
 
 You can pretty much ignore everything else.

@@ -1,19 +1,11 @@
 {
   "name": "needhave",
   "private": true,
-  "dependencies": {
-    "@rails/actioncable": "^6.0.0",
-    "@rails/activestorage": "^6.0.0",
-    "@rails/ujs": "^6.0.0",
-    "@rails/webpacker": "4.2.2",
-    "turbolinks": "^5.2.0"
-  },
   "version": "0.1.0",
   "scripts": {
-    "touch": "mkdir tmp/ log/",
-    "start": "rails server"
-  },
-  "devDependencies": {
-    "webpack-dev-server": "^3.10.3"
+    "setup": "mkdir tmp/ log/",
+    "start": "rails server",
+    "clean": "rm -r node_modules/ && rm yarn.lock",
+    "postinstall": "yarn clean && cd frontend && yarn install"
   }
 }
