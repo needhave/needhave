@@ -18,11 +18,16 @@ gem "actioncable",   '~> 6.0.2', '>= 6.0.2.2'
 # gem "actionmailbox", '~> 6.0.2', '>= 6.0.2.2'
 # gem "actiontext",    '~> 6.0.2', '>= 6.0.2.2'
 gem "railties",      '~> 6.0.2', '>= 6.0.2.2'
-
-# 
-gem 'pg', '>= 0.18', '< 2.0'
 gem 'puma', '~> 4.1'
+
+# Database
+gem 'pg', '>= 0.18', '< 2.0'
+
+# Serialization
 gem 'jbuilder', '~> 2.7'
+gem 'fast_jsonapi'
+
+# Integration with ember
 gem 'ember-cli-rails'
 
 # Use Active Model has_secure_password
