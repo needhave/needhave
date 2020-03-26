@@ -28,8 +28,8 @@ The app runs at [http://localhost:3000](http://localhost:3000).
 
 Other commands:
 
-    # Create a new database table / model
-    rails generate model Article title:string text:text
+    # Create a new model
+    rails generate resource Article title:string text:text
 
     # Create a file to change a database table
     rails generate migration AddPartNumberToProducts
