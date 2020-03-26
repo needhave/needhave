@@ -9,7 +9,7 @@ class CreateEntities < ActiveRecord::Migration[6.0]
 
       t.timestamps
     end
-  add_foreign_key :haves, :entities
-  add_foreign_key :needs, :entities
+    add_foreign_key :haves, :entities
+    add_foreign_key :needs, :entities
   end
 end
