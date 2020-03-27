@@ -1,0 +1,44 @@
+html, body {
+  height: 100%;
+}
+html {
+  font-size: 14px;
+}
+body {
+  margin: 0px;
+  padding: 0px;
+  overflow-x: hidden;
+  min-width: 320px;
+  background: #FFFFFF;
+  font-family: 'Lato', 'Helvetica Neue', Arial, Helvetica, sans-serif;
+  font-size: 14px;
+  line-height: 1.4285em;
+  color: rgba(0, 0, 0, 0.87);
+  /* font-smoothing: antialiased; */
+}
+.nh-lead {
+  margin-top: 2rem;
+}
+.nh-lead h1 {
+  font-size: 3rem;
+  font-weight: normal;
+  margin-bottom: 0;
+}
+.nh-lead h3 {
+  font-weight: normal;
+  opacity: 0.75;
+  margin-top: 0;
+}
+.nh-masthead-loading {
+  opacity: 0.5;
+}
+.nh-masthead-loading .ui.container {
+  margin: 1rem 0;
+  padding: 1rem 0;
+  border: 1px dashed black;
+  border-radius: 1rem;
+}
+.nh-masthead-loading .ui.header {
+  text-align: center;
+  font-weight: normal;
+}

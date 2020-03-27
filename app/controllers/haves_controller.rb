@@ -1,3 +1,3 @@
 class HavesController < ApplicationController
-  resource Have, [:find, :find_all]
+  model_accessors Have, [:find, :find_all]
 end

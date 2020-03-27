@@ -4,14 +4,12 @@ This is the "frontend" single page application for NeedHave.
 
 ## Development
 
-### Code Generators
-
-Make use of the many generators for code, try `ember help generate` for more details
-
 ### Commands
 
 * `yarn lint --fix`
 * `yarn build`
+* `ember generate component`
+* `ember generate route`
 
 ## Further Reading / Useful Links
 

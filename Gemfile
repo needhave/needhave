@@ -24,7 +24,7 @@ gem 'puma', '~> 4.1'
 gem 'pg', '>= 0.18', '< 2.0'
 
 # Serialization
-gem 'jbuilder', '~> 2.7'
+gem 'active_model_serializers', '~> 0.10.0'
 gem 'fast_jsonapi'
 
 # Integration with ember

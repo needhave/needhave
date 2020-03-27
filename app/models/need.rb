@@ -1,3 +1,3 @@
 class Need < ApplicationRecord
-  belongs_to :entity
+  has_one :entity
 end

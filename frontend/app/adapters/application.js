@@ -1,4 +1,4 @@
-import { pluralize } from '@ember/inflector';
+import { pluralize } from 'ember-inflector';
 import { underscore } from '@ember/string';
 import JSONAPIAdapter from '@ember-data/adapter/json-api';
 

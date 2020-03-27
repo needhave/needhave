@@ -5,5 +5,5 @@ import Model, { attr } from '@ember-data/model';
 //   app/serializers/have_serializer.rb
 //
 export default class HaveModel extends Model {
-  @attr id
+  // ... add `@attr whatever` here ...
 }
