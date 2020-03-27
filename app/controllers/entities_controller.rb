@@ -1,3 +1,3 @@
 class EntitiesController < ApplicationController
-  resource Entity, [:find, :find_all]
+  model_accessors Entity, [:find, :find_all]
 end

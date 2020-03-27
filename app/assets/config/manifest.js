@@ -1,1 +1,1 @@
-// This file is required by rails.
+// This file is required by sprockets.

@@ -1,0 +1,19 @@
+<Lead />
+
+<div class="ui text container">
+  <div class="ui divider"></div>
+
+  <div class="ui items">
+  {{#each @model as |need|}}
+    <div class="item">
+      <div class="content">
+        <a class="header">Someone needs something</a>
+        <div class="description">
+          <p>{{need.description}}</p>
+          <p>{{need.instructions}}</p>
+        </div>
+      </div>
+    </div>
+  {{/each}}
+  </div>
+</div>

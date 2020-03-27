@@ -4,7 +4,7 @@ class ResourceGenerator < Rails::Generators::ModelGenerator
   def create_controller
     create_file "app/controllers/#{file_name.pluralize}_controller.rb", <<~FILE
       class #{class_name.pluralize}Controller < ApplicationController
-        resource #{class_name}, [:find, :find_all]
+        model_accessors #{class_name}, [:find, :find_all]
       end
     FILE
   end
@@ -15,7 +15,7 @@ class ResourceGenerator < Rails::Generators::ModelGenerator
       #
       #   frontend/app/models/#{file_name}.js
       #
-      class #{class_name}Serializer
+      class #{class_name.pluralize}Serializer
         include FastJsonapi::ObjectSerializer
         set_key_transform :unaltered
 
@@ -30,17 +30,17 @@ class ResourceGenerator < Rails::Generators::ModelGenerator
 
       // KEEP UPDATED WITH:
       //
-      //   app/serializers/#{file_name}_serializer.rb
+      //   app/serializers/#{file_name.pluralize}_serializer.rb
       //
       export default class #{class_name}Model extends Model {
-        @attr id
+        // ... add `@attr whatever` here ...
       }
     FILE
   end
 
   def define_route
-    sentinel = /namespace :api.*\s*do\n/m
-    routing_code = "resource '#{file_name.pluralize}'"
+    sentinel = /scope '\/api'.*\s*do\n/m
+    routing_code = "resources '#{file_name.pluralize}', except: [:new, :edit]"
     log :route, routing_code
     in_root do
       inject_into_file "config/routes.rb", optimize_indentation(routing_code, 4), after: sentinel, verbose: false, force: false

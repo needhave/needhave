@@ -1,8 +1,8 @@
 # KEEP UPDATED WITH:
 #
-#   frontend/app/models/have.js
+#   frontend/app/models/entity.js
 #
-class HaveSerializer
+class EntitiesSerializer
   include FastJsonapi::ObjectSerializer
   set_key_transform :unaltered
 

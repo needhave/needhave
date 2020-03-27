@@ -1,36 +1,34 @@
 class ApplicationController < ActionController::API
+  include ActionController::MimeResponds
+
   # Defines handlers for integration with '@ember/data'
-  def self.resource(model, methods)
-    class_variable_set(:@@model, model)
-    class_variable_set(:@@serializer, "#{model.name.pluralize}Serializer".constantize)
-    class_variable_set(:@@singular_name, model.name.underscore)
-    class_variable_set(:@@plural_name, model.name.underscore.pluralize)
-    class << self
-      include ActionController::MimeResponds
+  def self.model_accessors(model, queries)
+    self.instance_eval do
+      class_attribute :model, default: model
+      class_attribute :queries, default: queries
+      class_attribute :serializer, default: "#{model.name.pluralize}Serializer".constantize
+      class_attribute :singular_name, default: model.name.underscore
+      class_attribute :plural_name, default: model.name.underscore.pluralize
     end
 
     # Handler for `Model.findRecord` in the frontend
-    if methods.include? :find
+    if queries.include? :find
       def show
-        _instance = @@model.find(params[:id])
-        instance_variable_set(@@singular_name, _instance)
+        @instance = self.model.find(params[:id])
+        @serializer = self.serializer.new(@instance)
         respond_to do |format|
-          format.jsonapi {
-            render jsonapi: _instance, include: params[:include]
-          }
+          format.jsonapi { render json: @serializer.serialized_json }
         end
       end
     end
 
     # Handler for `Model.findAll` in the frontend
-    if methods.include? :find_all
+    if queries.include? :find_all
       def index
-        _instances = @@model.all
-        instance_variable_set(@@plural_name, _instances)
+        @instances = self.model.all
+        @serializer = self.serializer.new(@instances)
         respond_to do |format|
-          format.jsonapi {
-            render jsonapi: _instances, include: params[:include]
-          }
+          format.jsonapi { render json: @serializer.serialized_json }
         end
       end
     end

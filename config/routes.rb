@@ -3,9 +3,9 @@ Rails.application.routes.draw do
   mount_ember_app :frontend, to: "/"
 
   # The HTTP API
-  namespace :api, defaults: { format: :json } do
-    resource 'entities'
-    resource 'haves'
-    resource 'needs'
+  scope '/api' do
+    resources 'entities', except: [:new, :edit]
+    resources 'haves', except: [:new, :edit]
+    resources 'needs', except: [:new, :edit]
   end
 end
