@@ -4,7 +4,7 @@ class ResourceGenerator < Rails::Generators::ModelGenerator
   def create_controller
     create_file "app/controllers/#{file_name.pluralize}_controller.rb", <<~FILE
       class #{class_name.pluralize}Controller < ApplicationController
-        model_accessors #{class_name}, [:find, :find_all]
+        model_accessors #{class_name}
       end
     FILE
   end
