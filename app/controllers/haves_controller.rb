@@ -1,3 +1,3 @@
 class HavesController < ApplicationController
-  model_accessors Have, [:find, :find_all]
+  model_accessors Have, queries: [:find, :query], limit: 100
 end
