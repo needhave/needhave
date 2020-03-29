@@ -10,10 +10,11 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_03_25_045916) do
+ActiveRecord::Schema.define(version: 2020_03_29_193838) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+  enable_extension "postgis"
 
   create_table "entities", force: :cascade do |t|
     t.text "description"
@@ -28,19 +29,32 @@ ActiveRecord::Schema.define(version: 2020_03_25_045916) do
   create_table "haves", force: :cascade do |t|
     t.text "description"
     t.text "instructions"
-    t.bigint "entity_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.bigint "entity_id"
+    t.bigint "location_id"
+  end
+
+  create_table "locations", force: :cascade do |t|
+    t.string "display_name"
+    t.geography "lonlat", limit: {:srid=>4326, :type=>"st_point", :geographic=>true}
+    t.jsonb "address"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["address"], name: "index_locations_on_address", using: :gin
   end
 
   create_table "needs", force: :cascade do |t|
     t.text "description"
     t.text "instructions"
-    t.bigint "entity_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.bigint "entity_id"
+    t.bigint "location_id"
   end
 
   add_foreign_key "haves", "entities"
+  add_foreign_key "haves", "locations"
   add_foreign_key "needs", "entities"
+  add_foreign_key "needs", "locations"
 end

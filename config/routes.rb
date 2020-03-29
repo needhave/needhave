@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :locations
   # The SPA client application
   mount_ember_app :frontend, to: "/"
 

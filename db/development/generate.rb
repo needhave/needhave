@@ -18,5 +18,11 @@ module Generate
         instructions: "Give me help or supplies at #{places.sample}"
       })
     end
+    20.times do
+      Have.create!({
+        description: "I have #{needed.sample}.",
+        instructions: "Give me help or supplies at #{places.sample}"
+      })
+    end
   end
 end
