@@ -1,8 +1,8 @@
 # KEEP UPDATED WITH:
 #
-#   frontend/app/models/need.js
+#   frontend/app/models/need-post.js
 #
-class NeedsSerializer
+class NeedPostsSerializer
   include FastJsonapi::ObjectSerializer
   set_key_transform :unaltered
 

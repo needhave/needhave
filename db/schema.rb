@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_03_29_193838) do
+ActiveRecord::Schema.define(version: 2020_03_29_224816) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -26,7 +26,7 @@ ActiveRecord::Schema.define(version: 2020_03_29_193838) do
     t.datetime "updated_at", precision: 6, null: false
   end
 
-  create_table "haves", force: :cascade do |t|
+  create_table "have_posts", force: :cascade do |t|
     t.text "description"
     t.text "instructions"
     t.datetime "created_at", precision: 6, null: false
@@ -44,7 +44,7 @@ ActiveRecord::Schema.define(version: 2020_03_29_193838) do
     t.index ["address"], name: "index_locations_on_address", using: :gin
   end
 
-  create_table "needs", force: :cascade do |t|
+  create_table "need_posts", force: :cascade do |t|
     t.text "description"
     t.text "instructions"
     t.datetime "created_at", precision: 6, null: false
@@ -53,8 +53,8 @@ ActiveRecord::Schema.define(version: 2020_03_29_193838) do
     t.bigint "location_id"
   end
 
-  add_foreign_key "haves", "entities"
-  add_foreign_key "haves", "locations"
-  add_foreign_key "needs", "entities"
-  add_foreign_key "needs", "locations"
+  add_foreign_key "have_posts", "entities"
+  add_foreign_key "have_posts", "locations"
+  add_foreign_key "need_posts", "entities"
+  add_foreign_key "need_posts", "locations"
 end

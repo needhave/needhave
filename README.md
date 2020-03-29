@@ -45,6 +45,7 @@ The files and folders we care about are:
       models/       # Data Model
       channels/     # Websockets
       controllers/  # HTTP Handlers
+      serializers/  # JSON Responses
     config/
       routes.rb   # Defines API endpoints
 

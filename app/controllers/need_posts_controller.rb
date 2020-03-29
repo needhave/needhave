@@ -1,5 +1,5 @@
-class NeedsController < ApplicationController
-  model_accessors Need, [:find]
+class NeedPostsController < ApplicationController
+  model_accessors NeedPost, [:find]
 
   def index
     @instances = self.model.order("RANDOM()").all

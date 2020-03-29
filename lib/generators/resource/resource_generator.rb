@@ -13,7 +13,7 @@ class ResourceGenerator < Rails::Generators::ModelGenerator
     create_file "app/serializers/#{file_name}_serializer.rb", <<~FILE
       # KEEP UPDATED WITH:
       #
-      #   frontend/app/models/#{file_name}.js
+      #   frontend/app/models/#{file_name.dasherize}.js
       #
       class #{class_name.pluralize}Serializer
         include FastJsonapi::ObjectSerializer
@@ -25,7 +25,7 @@ class ResourceGenerator < Rails::Generators::ModelGenerator
   end
 
   def create_ember_model
-    create_file "frontend/app/models/#{file_name}.js", <<~FILE
+    create_file "frontend/app/models/#{file_name.dasherize}.js", <<~FILE
       import Model, { attr } from '@ember-data/model';
 
       // KEEP UPDATED WITH:
