@@ -33,7 +33,7 @@ ActiveRecord::Schema.define(version: 2020_03_29_225045) do
     t.datetime "updated_at", precision: 6, null: false
     t.bigint "entity_id"
     t.bigint "location_id"
-    t.bigint "category_id"
+    t.bigint "category_id", null: false
   end
 
   create_table "locations", force: :cascade do |t|
@@ -61,7 +61,7 @@ ActiveRecord::Schema.define(version: 2020_03_29_225045) do
     t.datetime "updated_at", precision: 6, null: false
     t.bigint "entity_id"
     t.bigint "location_id"
-    t.bigint "category_id"
+    t.bigint "category_id", null: false
   end
 
   add_foreign_key "have_posts", "entities"

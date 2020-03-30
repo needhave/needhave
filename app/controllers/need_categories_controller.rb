@@ -1,4 +1,8 @@
 class NeedCategoriesController < ApplicationController
-  model_accessors NeedCategory, [:find, :find_all, :query], limit: nil
+  model_accessors ({
+    queries: [:find, :find_all, :query],
+    filters: [:name, :slug]
+    limit: nil
+  })
 end
   
