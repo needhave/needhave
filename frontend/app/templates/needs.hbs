@@ -1,18 +1,24 @@
-<Lead />
+<AppTitle />
+
+<div class="app__navigation">
+  <div class="ui text container">
+    <Search @search={{@model.search}} />
+  </div>
+</div>
 
 <div class="ui text container">
   <div class="ui divider"></div>
 
   <div class="ui items">
-  {{#each @model as |need|}}
+  {{#each @model.posts as |post|}}
     <div class="item">
       <div class="content">
         <a class="header" style="font-weight:normal">
-          Someone <u>near you</u> needs <u>{{need.category.friendlyName}}</u>
+          Someone <u>near you</u> needs <u>{{post.category.friendlyName}}</u>
         </a>
         <div class="description">
-          <p>{{need.description}}</p>
-          <p>{{need.instructions}}</p>
+          <p>{{post.description}}</p>
+          <p>{{post.instructions}}</p>
         </div>
       </div>
     </div>

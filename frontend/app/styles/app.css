@@ -16,29 +16,32 @@ body {
   color: rgba(0, 0, 0, 0.87);
   /* font-smoothing: antialiased; */
 }
-.nh-lead {
+.app__title {
   margin-top: 2rem;
 }
-.nh-lead h1 {
+.app__title h1 {
   font-size: 3rem;
   font-weight: normal;
   margin-bottom: 0;
 }
-.nh-lead h3 {
+.app__title h3 {
   font-weight: normal;
   opacity: 0.75;
   margin-top: 0;
 }
-.nh-masthead-loading {
+.app__navigation .ui.container {
+  margin: 1rem 0;
+}
+.app__masthead.loading {
   opacity: 0.5;
 }
-.nh-masthead-loading .ui.container {
+.app__masthead.loading .ui.container {
   margin: 1rem 0;
   padding: 1rem 0;
   border: 1px dashed black;
   border-radius: 1rem;
 }
-.nh-masthead-loading .ui.header {
+.app__masthead.loading .ui.header {
   text-align: center;
   font-weight: normal;
 }
