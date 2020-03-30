@@ -1,8 +1,8 @@
 module Generate
-  Post = Struct.new(:category, :what)
+  CreatePost = Struct.new(:category, :what)
 
   def self.post(slug, what)
-    Post.new(NeedCategory.find_by(slug: slug), what)
+    CreatePost.new(Category.find_by(slug: slug), what)
   end
 
   def self.generate_posts

@@ -1,10 +1,10 @@
 # Definition of database seeds
 
 module Seeds
-  Category = Struct.new(:name, :slug, :children)
+  CreateCategory = Struct.new(:name, :slug, :children)
 
   def self.category(*args)
-    Category.new(*args)
+    CreateCategory.new(*args)
   end
 
   def self.intialize_categories
@@ -26,9 +26,9 @@ module Seeds
         category("Other", "supplies.other"),
       ]),
     ].each do |root|
-      parent = NeedCategory.find_or_create_by!({ name: root.name, slug: root.slug })
+      parent = Category.find_or_create_by!({ name: root.name, slug: root.slug })
       root.children.each do |child|
-        NeedCategory.find_or_create_by!({ name: child.name, slug: child.slug, parent: parent })
+        Category.find_or_create_by!({ name: child.name, slug: child.slug, parent: parent })
       end
     end
   end

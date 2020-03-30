@@ -2,10 +2,12 @@
 #
 #   frontend/app/models/need-post.js
 #
-class NeedPostsSerializer
+class NeedPostSerializer
   include FastJsonapi::ObjectSerializer
   set_key_transform :unaltered
 
   attributes :id, :description, :instructions
-  has_one :entity
+  belongs_to :entity
+  belongs_to :location
+  belongs_to :category
 end

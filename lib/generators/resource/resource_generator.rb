@@ -10,12 +10,12 @@ class ResourceGenerator < Rails::Generators::ModelGenerator
   end
 
   def create_serializer
-    create_file "app/serializers/#{file_name.pluralize}_serializer.rb", <<~FILE
+    create_file "app/serializers/#{file_name}_serializer.rb", <<~FILE
       # KEEP UPDATED WITH:
       #
       #   frontend/app/models/#{file_name.dasherize}.js
       #
-      class #{class_name.pluralize}Serializer
+      class #{class_name}Serializer
         include FastJsonapi::ObjectSerializer
         set_key_transform :unaltered
 
@@ -30,7 +30,7 @@ class ResourceGenerator < Rails::Generators::ModelGenerator
 
       // KEEP UPDATED WITH:
       //
-      //   app/serializers/#{file_name.pluralize}_serializer.rb
+      //   app/serializers/#{file_name}_serializer.rb
       //
       export default class #{class_name}Model extends Model {
         // ... add `@attr whatever` here ...

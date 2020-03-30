@@ -2,7 +2,7 @@
 #
 #   frontend/app/models/location.js
 #
-class LocationsSerializer
+class LocationSerializer
   include FastJsonapi::ObjectSerializer
   set_key_transform :unaltered
 

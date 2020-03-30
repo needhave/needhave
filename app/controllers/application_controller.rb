@@ -16,7 +16,7 @@ class ApplicationController < ActionController::API
       class_attribute :allowed_includes, default: includes
       class_attribute :singular_name, default: self.model.name.underscore
       class_attribute :plural_name, default: self.model.name.underscore.pluralize
-      class_attribute :serializer, default: "#{self.model.name.pluralize}Serializer".constantize
+      class_attribute :serializer, default: "#{self.model.name}Serializer".constantize
     end
 
     if queries.include?(:find)
@@ -71,9 +71,9 @@ class ApplicationController < ActionController::API
     # Default params for [strong parameters](https://guides.rubyonrails.org/action_controller_overview.html#strong-parameters)
     def query_params(*args)
       if args.length > 0
-        params.require(:filter).permit(*args)
+        params[:filter].permit(*args)
       elsif self.respond_to?(:allowed_filter)
-        params.require(:filter).permit(*self.allowed_filter)
+        params[:filter].permit(*self.allowed_filter)
       end
     end
 
@@ -104,7 +104,7 @@ class ApplicationController < ActionController::API
 
     # Default include params to join tables
     def include_params(*args)
-      include_param = params.permit(:include)
+      include_param = params[:include]
       if include_param.is_a?(String)
         permitted = []
         if args.length > 0

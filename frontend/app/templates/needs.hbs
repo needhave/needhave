@@ -7,7 +7,9 @@
   {{#each @model as |need|}}
     <div class="item">
       <div class="content">
-        <a class="header">Someone needs something</a>
+        <a class="header" style="font-weight:normal">
+          Someone <u>near you</u> needs <u>{{need.category.name}}</u>
+        </a>
         <div class="description">
           <p>{{need.description}}</p>
           <p>{{need.instructions}}</p>

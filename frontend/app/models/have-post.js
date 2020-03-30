@@ -8,5 +8,5 @@ export default class HavePostModel extends Model {
   @attr description;
   @attr instructions;
   @belongsTo('entity') entity;
-  @belongsTo('need-category') category;
+  @belongsTo('category') category;
 }

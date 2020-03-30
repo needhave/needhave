@@ -16,6 +16,15 @@ ActiveRecord::Schema.define(version: 2020_03_29_225045) do
   enable_extension "plpgsql"
   enable_extension "postgis"
 
+  create_table "categories", force: :cascade do |t|
+    t.text "name"
+    t.text "slug"
+    t.text "description"
+    t.bigint "parent_id"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
   create_table "entities", force: :cascade do |t|
     t.text "description"
     t.boolean "verified"
@@ -45,15 +54,6 @@ ActiveRecord::Schema.define(version: 2020_03_29_225045) do
     t.index ["address"], name: "index_locations_on_address", using: :gin
   end
 
-  create_table "need_categories", force: :cascade do |t|
-    t.text "name"
-    t.text "slug"
-    t.text "description"
-    t.bigint "parent_id"
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
-  end
-
   create_table "need_posts", force: :cascade do |t|
     t.text "description"
     t.text "instructions"
@@ -64,11 +64,11 @@ ActiveRecord::Schema.define(version: 2020_03_29_225045) do
     t.bigint "category_id", null: false
   end
 
+  add_foreign_key "categories", "categories", column: "parent_id"
+  add_foreign_key "have_posts", "categories"
   add_foreign_key "have_posts", "entities"
   add_foreign_key "have_posts", "locations"
-  add_foreign_key "have_posts", "need_categories", column: "category_id"
-  add_foreign_key "need_categories", "need_categories", column: "parent_id"
+  add_foreign_key "need_posts", "categories"
   add_foreign_key "need_posts", "entities"
   add_foreign_key "need_posts", "locations"
-  add_foreign_key "need_posts", "need_categories", column: "category_id"
 end

@@ -16,12 +16,14 @@ class NeedPostsController < ApplicationController
       @instances = self.model
         .includes(*include_params)
         .take_sample(query_limit)
-    else
+    elsif params[:filter]
       @instances = self.model
         .includes(*include_params)
         .offset(query_offset)
         .limit(query_limit)
         .where(query_params)
+    else
+      params.require(:filter) # throws error
     end
 
     @serializer = self.serializer.new(@instances, include: include_params)

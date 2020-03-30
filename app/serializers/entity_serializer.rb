@@ -1,10 +1,12 @@
 # KEEP UPDATED WITH:
 #
-#   frontend/app/models/have-post.js
+#   frontend/app/models/entity.js
 #
-class HavePostsSerializer
+class EntitySerializer
   include FastJsonapi::ObjectSerializer
   set_key_transform :unaltered
 
   # ... add attributes here ...
+
+  attributes :id
 end

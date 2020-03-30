@@ -8,5 +8,5 @@ export default class NeedPostModel extends Model {
   @attr description;
   @attr instructions;
   @belongsTo('entity') entity;
-  @belongsTo('need-category') category;
+  @belongsTo('category') category;
 }
