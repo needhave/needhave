@@ -1,3 +1,4 @@
 class NeedPost < ApplicationRecord
-  has_one :entity
+  belongs_to :entity, optional: true
+  belongs_to :category, class_name: "NeedCategory", optional: true
 end
