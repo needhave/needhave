@@ -4,13 +4,13 @@ class ResourceGenerator < Rails::Generators::ModelGenerator
   def create_controller
     create_file "app/controllers/#{file_name.pluralize}_controller.rb", <<~FILE
       class #{class_name.pluralize}Controller < ApplicationController
-        model_accessors #{class_name}, [:find, :find_all]
+        model_accessors #{class_name}
       end
     FILE
   end
 
   def create_serializer
-    create_file "app/serializers/#{file_name}_serializer.rb", <<~FILE
+    create_file "app/serializers/#{file_name.pluralize}_serializer.rb", <<~FILE
       # KEEP UPDATED WITH:
       #
       #   frontend/app/models/#{file_name.dasherize}.js
