@@ -4,7 +4,7 @@ class ResourceGenerator < Rails::Generators::ModelGenerator
   def create_controller
     create_file "app/controllers/#{file_name.pluralize}_controller.rb", <<~FILE
       class #{class_name.pluralize}Controller < ApplicationController
-        model_accessors #{class_name}
+        model_accessors
       end
     FILE
   end
@@ -13,9 +13,9 @@ class ResourceGenerator < Rails::Generators::ModelGenerator
     create_file "app/serializers/#{file_name}_serializer.rb", <<~FILE
       # KEEP UPDATED WITH:
       #
-      #   frontend/app/models/#{file_name}.js
+      #   frontend/app/models/#{file_name.dasherize}.js
       #
-      class #{class_name.pluralize}Serializer
+      class #{class_name}Serializer
         include FastJsonapi::ObjectSerializer
         set_key_transform :unaltered
 
@@ -25,12 +25,12 @@ class ResourceGenerator < Rails::Generators::ModelGenerator
   end
 
   def create_ember_model
-    create_file "frontend/app/models/#{file_name}.js", <<~FILE
+    create_file "frontend/app/models/#{file_name.dasherize}.js", <<~FILE
       import Model, { attr } from '@ember-data/model';
 
       // KEEP UPDATED WITH:
       //
-      //   app/serializers/#{file_name.pluralize}_serializer.rb
+      //   app/serializers/#{file_name}_serializer.rb
       //
       export default class #{class_name}Model extends Model {
         // ... add `@attr whatever` here ...

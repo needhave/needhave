@@ -1,15 +1,48 @@
-# This file should contain all the record creation needed to seed the database with its default values.
-# The data can then be loaded with the rails db:seed command (or created alongside the database with db:setup).
-#
-# Examples:
-#
-#   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
-#   Character.create(name: 'Luke', movie: movies.first)
+# Definition of database seeds
 
+module Seeds
+  CreateCategory = Struct.new(:slug, :name, :friendly, :children)
+
+  def self.category(*args)
+    CreateCategory.new(*args)
+  end
+
+  def self.intialize_categories
+    [
+      category("help", "Help", nil, [
+        category("help.in-person", "In-Person", "In-Person Help"),
+        category("help.emergency", "Emergency", "Emergency Help"),
+        category("help.other", "Other", "Other Help"),
+      ]),
+      category("professional", "Professional Work", nil, [
+        category("professional.medical", "Medical Care"),
+        category("professional.programming", "Programming"),
+        category("professional.other", "Other", "Other Professional Work"),
+      ]),
+      category("supplies", "Supplies", nil, [
+        category("supplies.food", "Food", "Food Supplies"),
+        category("supplies.cleaning", "Cleaning", "Cleaning Supplies"),
+        category("supplies.medical", "Medical", "Medical Supplies"),
+        category("supplies.other", "Other", "Other Supplies"),
+      ]),
+    ].each do |root|
+      parent = Category.find_or_create_by!({ name: root.name, slug: root.slug })
+      root.children.each do |child|
+        Category.create_with({ display_name: child.friendly })
+                .find_or_create_by!({ name: child.name, slug: child.slug, parent: parent })
+      end
+    end
+  end
+end
+
+# Per-environment seeds
 case Rails.env
 when "development"
   require_relative 'development/generate'
-  Generate.generate_needs
+
+  Seeds.intialize_categories
+  Generate.generate_posts
+
 when "production"
-  # ...
+  Seeds.intialize_categories
 end

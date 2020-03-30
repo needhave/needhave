@@ -7,6 +7,7 @@ and setup the project directory.
 
 ```sh
 brew install ruby yarn postgresql
+brew install postgis
 brew services start postgresql
 gem install rails
 gem install pg -- --with-pg-config=/usr/local/bin/pg_config
@@ -44,6 +45,7 @@ The files and folders we care about are:
       models/       # Data Model
       channels/     # Websockets
       controllers/  # HTTP Handlers
+      serializers/  # JSON Responses
     config/
       routes.rb   # Defines API endpoints
 

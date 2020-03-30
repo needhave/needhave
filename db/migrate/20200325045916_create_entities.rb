@@ -9,6 +9,13 @@ class CreateEntities < ActiveRecord::Migration[6.0]
 
       t.timestamps
     end
+
+    change_table(:needs) do |t|
+      t.bigint :entity_id
+    end
+    change_table(:haves) do |t|
+      t.bigint :entity_id
+    end
     add_foreign_key :haves, :entities
     add_foreign_key :needs, :entities
   end

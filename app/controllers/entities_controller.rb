@@ -1,3 +1,3 @@
 class EntitiesController < ApplicationController
-  model_accessors Entity, queries: [:find, :query], limit: 100
+  model_accessors queries: [:find, :query], limit: 100
 end

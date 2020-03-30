@@ -3,7 +3,6 @@ class CreateHaves < ActiveRecord::Migration[6.0]
     create_table :haves do |t|
       t.text :description
       t.text :instructions
-      t.bigint :entity_id
       
       t.timestamps
     end
