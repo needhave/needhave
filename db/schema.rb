@@ -19,6 +19,7 @@ ActiveRecord::Schema.define(version: 2020_03_29_225045) do
   create_table "categories", force: :cascade do |t|
     t.text "name"
     t.text "slug"
+    t.text "display_name"
     t.text "description"
     t.bigint "parent_id"
     t.datetime "created_at", precision: 6, null: false

@@ -1,7 +1,7 @@
 # Definition of database seeds
 
 module Seeds
-  CreateCategory = Struct.new(:name, :slug, :children)
+  CreateCategory = Struct.new(:slug, :name, :friendly, :children)
 
   def self.category(*args)
     CreateCategory.new(*args)
@@ -9,26 +9,27 @@ module Seeds
 
   def self.intialize_categories
     [
-      category("Help", "help", [
-        category("In-Person", "help.in-person"),
-        category("Emergency", "help.emergency"),
-        category("Other", "help.other"),
+      category("help", "Help", nil, [
+        category("help.in-person", "In-Person", "In-Person Help"),
+        category("help.emergency", "Emergency", "Emergency Help"),
+        category("help.other", "Other", "Other Help"),
       ]),
-      category("Professional Work", "professional", [
-        category("Medical Care", "professional.medical"),
-        category("Programming", "professional.programming"),
-        category("Other", "professional.other"),
+      category("professional", "Professional Work", nil, [
+        category("professional.medical", "Medical Care"),
+        category("professional.programming", "Programming"),
+        category("professional.other", "Other", "Other Professional Work"),
       ]),
-      category("Supplies", "supplies", [
-        category("Food", "supplies.food"),
-        category("Cleaning", "supplies.cleaning"),
-        category("Medical", "supplies.medical"),
-        category("Other", "supplies.other"),
+      category("supplies", "Supplies", nil, [
+        category("supplies.food", "Food", "Food Supplies"),
+        category("supplies.cleaning", "Cleaning", "Cleaning Supplies"),
+        category("supplies.medical", "Medical", "Medical Supplies"),
+        category("supplies.other", "Other", "Other Supplies"),
       ]),
     ].each do |root|
       parent = Category.find_or_create_by!({ name: root.name, slug: root.slug })
       root.children.each do |child|
-        Category.find_or_create_by!({ name: child.name, slug: child.slug, parent: parent })
+        Category.create_with({ display_name: child.friendly })
+                .find_or_create_by!({ name: child.name, slug: child.slug, parent: parent })
       end
     end
   end

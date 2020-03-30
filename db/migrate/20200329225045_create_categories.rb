@@ -3,6 +3,7 @@ class CreateCategories < ActiveRecord::Migration[6.0]
     create_table :categories do |t|
       t.text :name
       t.text :slug, unique: true
+      t.text :display_name, null: true
       t.text :description, null: true
       t.bigint :parent_id, null: true
 
