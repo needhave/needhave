@@ -5,9 +5,11 @@ const EmberApp = require('ember-cli/lib/broccoli/ember-app');
 module.exports = function(defaults) {
   let app = new EmberApp(defaults, {});
 
-  // Define assets from 'vendor/' or 'node_modules/'
-  app.import('vendor/semantic/semantic.min.css');
-  app.import('vendor/semantic/semantic.min.js');
+  // Import vendored assets
+  app.import('vendor/semantic-ui/semantic.css');
+  app.import('vendor/semantic-ui/semantic.js', {
+    using: [ { transformation: 'amd', as: 'semantic-ui' } ]
+  });
 
   return app.toTree();
 };

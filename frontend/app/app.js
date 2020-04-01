@@ -1,3 +1,6 @@
+// Load semantic UI extensions to jquery
+import 'semantic-ui';
+
 // Enables some sane form interactions
 // (see https://github.com/rails/jquery-ujs)
 import ujs from '@rails/ujs';
