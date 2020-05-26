@@ -6,18 +6,18 @@ ruby '2.6.3'
 # Custom configuration for: gem 'rails', 
 gem "bundler",         ">= 1.3.0"
 gem "sprockets-rails", ">= 2.0.0"
-gem "activesupport", '~> 6.0.2', '>= 6.0.2.2'
-gem "actionpack",    '~> 6.0.2', '>= 6.0.2.2'
-gem "actionview",    '~> 6.0.2', '>= 6.0.2.2'
-gem "activemodel",   '~> 6.0.2', '>= 6.0.2.2'
-gem "activerecord",  '~> 6.0.2', '>= 6.0.2.2'
-gem "actionmailer",  '~> 6.0.2', '>= 6.0.2.2'
-gem "activejob",     '~> 6.0.2', '>= 6.0.2.2'
-gem "actioncable",   '~> 6.0.2', '>= 6.0.2.2'
+gem "activesupport", '~> 6.0.3'
+gem "actionpack",    '~> 6.0.3'
+gem "actionview",    '~> 6.0.3'
+gem "activemodel",   '~> 6.0.3'
+gem "activerecord",  '~> 6.0.3'
+gem "actionmailer",  '~> 6.0.3'
+gem "activejob",     '~> 6.0.3'
+gem "actioncable",   '~> 6.0.3'
 # gem "activestorage", '~> 6.0.2', '>= 6.0.2.2'
 # gem "actionmailbox", '~> 6.0.2', '>= 6.0.2.2'
 # gem "actiontext",    '~> 6.0.2', '>= 6.0.2.2'
-gem "railties",      '~> 6.0.2', '>= 6.0.2.2'
+gem "railties",      '~> 6.0.3'
 gem 'puma', '~> 4.1'
 
 # Database
