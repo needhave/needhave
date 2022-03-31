@@ -18,7 +18,7 @@ gem "actioncable",   '~> 6.0.2', '>= 6.0.2.2'
 # gem "actionmailbox", '~> 6.0.2', '>= 6.0.2.2'
 # gem "actiontext",    '~> 6.0.2', '>= 6.0.2.2'
 gem "railties",      '~> 6.0.2', '>= 6.0.2.2'
-gem 'puma', '~> 4.1'
+gem 'puma', '~> 4.3'
 
 # Database
 gem 'pg', '>= 0.18', '< 2.0'
